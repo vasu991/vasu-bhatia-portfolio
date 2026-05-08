@@ -14,7 +14,8 @@ export default function Contact() {
     const dataObj = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const backendUrl = import.meta.env.DEV ? 'http://localhost:5000' : '/_/backend';
+      const response = await fetch(`${backendUrl}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

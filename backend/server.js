@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 const allowedOrigin = process.env.NODE_ENV === 'production' 
-  ? 'https://vasu-bhatia-portfolio.vercel.app' 
+  ? (process.env.FRONTEND_URL || 'https://vasu-bhatia-portfolio.vercel.app')
   : 'http://localhost:3000';
 
 app.use(cors({ origin: allowedOrigin }));
