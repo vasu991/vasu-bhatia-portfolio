@@ -35,6 +35,11 @@ transporter.verify(function (error, success) {
   }
 });
 
+// Health Check Endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({ status: 'success', message: 'Backend is running' });
+});
+
 // API Endpoint
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
