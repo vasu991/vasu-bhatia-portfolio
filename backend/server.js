@@ -9,8 +9,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+const rawFrontendUrl = process.env.FRONTEND_URL || 'https://vasu-bhatia-portfolio.vercel.app';
+const cleanFrontendUrl = rawFrontendUrl.replace(/\/+$/, '');
+
 const allowedOrigin = process.env.NODE_ENV === 'production' 
-  ? (process.env.FRONTEND_URL || 'https://vasu-bhatia-portfolio.vercel.app')
+  ? cleanFrontendUrl
   : 'http://localhost:3000';
 
 app.use(cors({ origin: allowedOrigin }));
