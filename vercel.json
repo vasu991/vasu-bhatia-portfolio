@@ -3,7 +3,9 @@
     "frontend": {
       "entrypoint": "frontend",
       "routePrefix": "/",
-      "framework": "vite"
+      "framework": "vite",
+      "buildCommand": "npm install && npm run build",
+      "outputDirectory": "dist"
     },
     "backend": {
       "entrypoint": "backend",
