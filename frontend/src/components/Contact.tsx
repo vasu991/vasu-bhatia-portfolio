@@ -15,7 +15,8 @@ export default function Contact() {
 
     try {
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-      const response = await fetch(`${backendUrl}/api/contact`, {
+      const cleanBackendUrl = backendUrl.replace(/\/+$/, '');
+      const response = await fetch(`${cleanBackendUrl}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
