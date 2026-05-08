@@ -7,8 +7,8 @@ export default function Skills() {
   return (
     <section id="skills" className="py-section px-6 lg:px-page-margin">
       <div className="flex flex-col md:flex-row gap-16">
-        <div className="md:w-1/3">
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-primary mb-8 sticky top-32">
+        <div className="md:w-1/3 md:sticky md:top-32 h-fit">
+          <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-primary mb-8">
             Technical Arsenal.
           </h2>
           <p className="text-on-surface-variant leading-relaxed max-w-sm">
