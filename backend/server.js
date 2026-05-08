@@ -9,9 +9,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? '*' : 'http://localhost:3000'
-}));
+const allowedOrigin = process.env.NODE_ENV === 'production' 
+  ? 'https://vasu-bhatia-portfolio.vercel.app' 
+  : 'http://localhost:3000';
+
+app.use(cors({ origin: allowedOrigin }));
 app.use(express.json());
 
 // Nodemailer Transporter Setup
@@ -65,6 +67,10 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Backend server running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
